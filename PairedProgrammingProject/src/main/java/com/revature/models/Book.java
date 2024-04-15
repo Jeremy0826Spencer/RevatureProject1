@@ -19,11 +19,6 @@ public class Book {
     @JoinColumn(name = "userId")
     private User user;
 
-    @Autowired
-    public Book(User user){
-        this.user = user;
-    }
-
     public Book() {
     }
 
