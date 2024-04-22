@@ -76,7 +76,7 @@ public class BookController{
     public ResponseEntity<Object> deleteBook(@PathVariable int bookId){
         Optional<Book> b = bookDAO.findById(bookId);
 
-        if(b.isEmpty()){
+        if(!b.isPresent()){
             return ResponseEntity.status(404).body("No book found with book id of: " + bookId);
         }
 
@@ -84,7 +84,7 @@ public class BookController{
 
         bookDAO.deleteById(bookId);
 
-        return ResponseEntity.accepted().body("Book " + bookToDelete.getBookName() + " has been deleted");
+        return ResponseEntity.accepted().body("Book " + b.get().getBookName() + " has been deleted");
 
     }
 

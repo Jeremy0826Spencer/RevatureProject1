@@ -14,7 +14,7 @@ public class Book {
     private String bookName;
     private String ISBN;
     private String description;
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "userId")
     private User user;
 
